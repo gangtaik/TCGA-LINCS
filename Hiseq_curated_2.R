@@ -21,10 +21,11 @@ for ( c.type in type.list){
   #(2)중복된 entrez ID가 없도록 collapse한 파일(row의 average 발현값이 높은 row를 남기고, 나머지 삭제)
   # 20435 row가 나오면 맞게 계산된 것 (V1=Original, V2=Entrez ID ,V3= Gene Symbol)
   print("Duplicated entrez id row collapse")
-  
+
+  coln=df.3.1[c(1:2),]
   dup.df=df.3.1[which(duplicated(df.3.1$V2)|duplicated(df.3.1$V2,fromLast = TRUE)),]
   dup.df=dup.df[order(dup.df$V2),]
-  remain.df=df.3.1[!df.3.1$V2 %in% unique(dup.df$V2),]
+  remain.df=df.3.1[!df.3.1$V2 %in% unique(dup.df$V2),][-c(1:2),]
   uniq.df=c()
   for (i in unique(dup.df$V2)){
     #unique(dup.df$V2)
@@ -40,6 +41,8 @@ for ( c.type in type.list){
     uniq.df=rbind(uniq.df,mx.row)
   }
   uniq.df=rbind(remain.df,uniq.df)
+  uniq.df=uniq.df[order(uniq.df$V2),]
+  uniq.df=rbind(coln,uniq.df)
   ##Original column deletion
   print("Original column deletion")
   cur.df.2=uniq.df[,-1]
