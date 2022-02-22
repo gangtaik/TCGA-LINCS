@@ -2,7 +2,7 @@ getwd()
 file.loc="/Users/hotcoldbrew/Desktop/OneDrive/TCGA-LINK/"
 type.list=dir(path=file.loc)
 type.list=type.list[type.list!="Ref"]
-
+output.tbl=c()
 
 for (c.type in type.list){
   #c.type="DLBC"
