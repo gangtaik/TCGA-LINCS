@@ -1,5 +1,5 @@
 getwd()
-file.loc="/Users/hotcoldbrew/Desktop/OneDrive/TCGA-LINK/"
+file.loc="/Users/hotcoldbrew/Desktop/OneDrive/TCGA-LINCS/"
 type.list=dir(path=file.loc)
 type.list=type.list[type.list!="Ref"]
 
