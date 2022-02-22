@@ -71,10 +71,7 @@ for ( c.type in type.list){
   t.a.df.2=arrange(t.a.df.2,annotate, X0)
   cur.df.1=data.frame(t(rbind(t.a.df.1,t.a.df.2)))
   rm (cur.df)
-  # coln=cur.df[c(1:2),]
-  # cur.df.1=cur.df[-c(1:2),]
-  # cur.df.1=cur.df.1[order(cur.df.1$X2),]
-  # cur.df.1=rbind(coln,cur.df.1)
+
   file.n=paste0("HiSeqV2_",c.type,"_curated_1.tsv")
   print (file.n)
   write.table(cur.df.1,file=file.n,sep="\t",quote=FALSE,col.names = FALSE,
